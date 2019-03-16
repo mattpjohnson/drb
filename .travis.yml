@@ -1,0 +1,22 @@
+language: node_js
+
+node_js:
+  - node
+  - '6'
+  - '10'
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+install:
+  - yarn install
+
+script:
+  - yarn test
+
+# If you want to run coverage using Travis CI uncomment the following lines
+#  - yarn test:coverage
+# after_success:
+#  - npx codecov

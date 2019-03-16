@@ -1,0 +1,27 @@
+image: node:8.11
+
+stages:
+  - setup
+  - test
+  # If you want to run coverage using GitLab CI uncomment the following line
+  # - codecov
+
+setup:
+  stage: setup
+  script:
+    - yarn install
+  artifacts:
+    paths:
+      - node_modules
+    expire_in: 20 minutes
+
+test:
+  stage: test
+  script:
+    - yarn test
+# If you want to run coverage using GitLab CI uncomment the following lines
+#     - yarn test:coverage
+# codecov:
+#   stage: coverage
+#   script:
+#     - npx codecov
