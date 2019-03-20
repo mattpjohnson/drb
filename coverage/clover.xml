@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1553090285945" clover="3.2.0">
+  <project timestamp="1553090285945" name="All files">
+    <metrics statements="36" coveredstatements="36" conditionals="18" coveredconditionals="18" methods="8" coveredmethods="8" elements="62" coveredelements="62" complexity="0" loc="36" ncloc="36" packages="2" files="3" classes="3">
+      <package name="tokenizers">
+        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <file name="runTokenizer.ts" path="/home/mattpjohnson/Code/drb/src/tokenizers/runTokenizer.ts">
+          <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="11" count="5" type="stmt"/>
+          <line num="13" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="17" count="4" type="stmt"/>
+          <line num="18" count="4" type="stmt"/>
+          <line num="19" count="19" type="stmt"/>
+          <line num="21" count="19" type="cond" truecount="2" falsecount="0"/>
+          <line num="22" count="8" type="stmt"/>
+          <line num="23" count="8" type="stmt"/>
+          <line num="26" count="19" type="stmt"/>
+          <line num="29" count="4" type="stmt"/>
+          <line num="31" count="4" type="stmt"/>
+        </file>
+      </package>
+      <package name="translators">
+        <metrics statements="23" coveredstatements="23" conditionals="14" coveredconditionals="14" methods="7" coveredmethods="7"/>
+        <file name="helpers.ts" path="/home/mattpjohnson/Code/drb/src/translators/helpers.ts">
+          <metrics statements="20" coveredstatements="20" conditionals="14" coveredconditionals="14" methods="7" coveredmethods="7"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="3" count="28" type="stmt"/>
+          <line num="4" count="29" type="cond" truecount="2" falsecount="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="8" count="28" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="14" count="9" type="stmt"/>
+          <line num="16" count="9" type="stmt"/>
+          <line num="17" count="537" type="stmt"/>
+          <line num="20" count="9" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
+          <line num="24" count="525" type="stmt"/>
+          <line num="28" count="525" type="cond" truecount="4" falsecount="0"/>
+          <line num="29" count="49" type="stmt"/>
+          <line num="31" count="476" type="cond" truecount="4" falsecount="0"/>
+          <line num="32" count="48" type="stmt"/>
+          <line num="34" count="428" type="cond" truecount="4" falsecount="0"/>
+          <line num="35" count="48" type="stmt"/>
+          <line num="38" count="380" type="stmt"/>
+        </file>
+        <file name="momentTranslator.ts" path="/home/mattpjohnson/Code/drb/src/translators/momentTranslator.ts">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
