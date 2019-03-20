@@ -310,8 +310,3 @@ test('translates week of year with ordinal', () => {
   expect(regex.test('54')).toBe(false)
   expect(regex.test('1')).toBe(false)
 })
-
-test('throws when provided bad tokens', () => {
-  expect(() => momentTranslator(['INVALID_TOKEN']))
-    .toThrow()
-})

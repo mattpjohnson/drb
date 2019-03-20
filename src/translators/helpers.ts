@@ -1,12 +1,6 @@
 export function lookupTranslator(lookup: { [token: string]: string }) {
   return (tokens: string[]) => {
-    return tokens.map(token => {
-      if (!(token in lookup)) {
-        throw new Error(`${token} not found in token lookup`)
-      }
-
-      return lookup[token]
-    })
+    return tokens.map(token => lookup[token] || token)
   }
 }
 
