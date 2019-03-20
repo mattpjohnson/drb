@@ -1,2 +1,2 @@
-export * from './sum';
-export * from './product';
+import { DrbFormatter } from './DrbFormatter';
+export declare function drb(formatter: DrbFormatter): (input: string) => string;

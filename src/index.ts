@@ -1,2 +1,9 @@
-export * from './sum'
-export * from './product'
+import { DrbFormatter } from './DrbFormatter'
+
+export function drb(formatter: DrbFormatter) {
+  return (input: string) => {
+    const tokens = formatter.tokenize(input)
+    const translated = formatter.translate(tokens)
+    return formatter.concat(translated)
+  }
+}

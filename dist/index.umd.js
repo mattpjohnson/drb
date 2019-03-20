@@ -1,19 +1,18 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
-    (factory((global.nodeTypeScriptBoilerplate = {})));
+    (factory((global.typeScriptLibraryBoilerplate = {})));
 }(this, (function (exports) { 'use strict';
 
-    function sum(a, b) {
-        return a + b;
+    function drb(formatter) {
+        return function (input) {
+            var tokens = formatter.tokenize(input);
+            var translated = formatter.translate(tokens);
+            return formatter.concat(translated);
+        };
     }
 
-    function product(a, b) {
-        return a * b;
-    }
-
-    exports.sum = sum;
-    exports.product = product;
+    exports.drb = drb;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
