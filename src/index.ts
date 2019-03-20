@@ -1,4 +1,4 @@
-import { DrbFormatter } from './DrbFormatter'
+import { DrbFormatter } from './formatters/index'
 
 export function drb(formatter: DrbFormatter) {
   return (input: string) => {
