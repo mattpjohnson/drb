@@ -31,6 +31,7 @@ const tokenLookup: { [token: string]: string } = {
   WW: '0[1-9]|[1-4][0-9]|5[0-3]',
   YY: '\\d{2}',
   YYYY: '\\d{4}',
+  Y: '\\d{4}|\\+\\d{5,}',
 }
 
 export const momentTranslator: DrbTranslator = lookupTranslator(tokenLookup)
