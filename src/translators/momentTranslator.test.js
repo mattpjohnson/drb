@@ -402,3 +402,103 @@ test('translates 4 digit week year (ISO) (GGGG)', () => {
   expect(regex.test('11875')).toBe(false)
   expect(regex.test('+11875')).toBe(false)
 })
+
+test('translates AM/PM (A)', () => {
+  const tokens = momentTranslator(['A'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('AM')).toBe(true)
+  expect(regex.test('PM')).toBe(true)
+  expect(regex.test('am')).toBe(false)
+  expect(regex.test('pm')).toBe(false)
+  expect(regex.test('AT')).toBe(false)
+})
+
+test('translates am/pm (a)', () => {
+  const tokens = momentTranslator(['a'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('am')).toBe(true)
+  expect(regex.test('pm')).toBe(true)
+  expect(regex.test('AM')).toBe(false)
+  expect(regex.test('PM')).toBe(false)
+  expect(regex.test('at')).toBe(false)
+})
+
+test('translates 0-indexed, 24-hour hour (H)', () => {
+  const tokens = momentTranslator(['H'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('0')).toBe(true)
+  expect(regex.test('8')).toBe(true)
+  expect(regex.test('23')).toBe(true)
+  expect(regex.test('24')).toBe(false)
+  expect(regex.test('06')).toBe(false)
+  expect(regex.test('123')).toBe(false)
+})
+
+test('translates 0-indexed, 2 digit, 24-hour hour (HH)', () => {
+  const tokens = momentTranslator(['HH'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('00')).toBe(true)
+  expect(regex.test('04')).toBe(true)
+  expect(regex.test('23')).toBe(true)
+  expect(regex.test('24')).toBe(false)
+  expect(regex.test('0')).toBe(false)
+  expect(regex.test('123')).toBe(false)
+})
+
+test('translates 1-indexed, 12-hour hour (h)', () => {
+  const tokens = momentTranslator(['h'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('1')).toBe(true)
+  expect(regex.test('8')).toBe(true)
+  expect(regex.test('12')).toBe(true)
+  expect(regex.test('13')).toBe(false)
+  expect(regex.test('0')).toBe(false)
+  expect(regex.test('06')).toBe(false)
+  expect(regex.test('121')).toBe(false)
+})
+
+test('translates 1-indexed, 2 digit, 12-hour hour (hh)', () => {
+  const tokens = momentTranslator(['hh'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('01')).toBe(true)
+  expect(regex.test('04')).toBe(true)
+  expect(regex.test('12')).toBe(true)
+  expect(regex.test('13')).toBe(false)
+  expect(regex.test('00')).toBe(false)
+  expect(regex.test('4')).toBe(false)
+  expect(regex.test('121')).toBe(false)
+})
+
+test('translates 1-indexed, 24-hour hour (k)', () => {
+  const tokens = momentTranslator(['k'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('1')).toBe(true)
+  expect(regex.test('4')).toBe(true)
+  expect(regex.test('13')).toBe(true)
+  expect(regex.test('24')).toBe(true)
+  expect(regex.test('25')).toBe(false)
+  expect(regex.test('0')).toBe(false)
+  expect(regex.test('04')).toBe(false)
+  expect(regex.test('121')).toBe(false)
+})
+
+test('translates 1-indexed, 2 digit, 24-hour hour (kk)', () => {
+  const tokens = momentTranslator(['kk'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('01')).toBe(true)
+  expect(regex.test('04')).toBe(true)
+  expect(regex.test('13')).toBe(true)
+  expect(regex.test('24')).toBe(true)
+  expect(regex.test('25')).toBe(false)
+  expect(regex.test('00')).toBe(false)
+  expect(regex.test('4')).toBe(false)
+  expect(regex.test('121')).toBe(false)
+})
