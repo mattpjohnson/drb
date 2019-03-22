@@ -1,6 +1,6 @@
 const { momentTranslator } = require('./momentTranslator')
 
-test('translates months', () => {
+test('translates months (M)', () => {
   const tokens = momentTranslator(['M'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -9,7 +9,7 @@ test('translates months', () => {
   expect(regex.test('3')).toBe(true)
 })
 
-test('translates months with ordinal', () => {
+test('translates months with ordinal (Mo)', () => {
   const tokens = momentTranslator(['Mo'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -20,7 +20,7 @@ test('translates months with ordinal', () => {
   expect(regex.test('3th')).toBe(false)
 })
 
-test('translates 2 digit months', () => {
+test('translates 2 digit months (MM)', () => {
   const tokens = momentTranslator(['MM'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -31,7 +31,7 @@ test('translates 2 digit months', () => {
   expect(regex.test('3')).toBe(false)
 })
 
-test('translates 3 character month names', () => {
+test('translates 3 character month names (MMM)', () => {
   const tokens = momentTranslator(['MMM'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -41,7 +41,7 @@ test('translates 3 character month names', () => {
   expect(regex.test('Aug')).toBe(true)
 })
 
-test('translates full month names', () => {
+test('translates full month names (MMMM)', () => {
   const tokens = momentTranslator(['MMMM'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -50,7 +50,7 @@ test('translates full month names', () => {
   expect(regex.test('Marty')).toBe(false)
 })
 
-test('translates quarter of the year', () => {
+test('translates quarter of the year (Q)', () => {
   const tokens = momentTranslator(['Q'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -62,7 +62,7 @@ test('translates quarter of the year', () => {
   expect(regex.test('0')).toBe(false)
 })
 
-test('translates quarter of the year with ordinal', () => {
+test('translates quarter of the year with ordinal (Qo)', () => {
   const tokens = momentTranslator(['Qo'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -74,7 +74,7 @@ test('translates quarter of the year with ordinal', () => {
   expect(regex.test('0st')).toBe(false)
 })
 
-test('translates day of the month', () => {
+test('translates day of the month (D)', () => {
   const tokens = momentTranslator(['D'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -87,7 +87,7 @@ test('translates day of the month', () => {
   expect(regex.test('32')).toBe(false)
 })
 
-test('translates day of the month with ordinal', () => {
+test('translates day of the month with ordinal (Do)', () => {
   const tokens = momentTranslator(['Do'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -102,7 +102,7 @@ test('translates day of the month with ordinal', () => {
   expect(regex.test('0st')).toBe(false)
 })
 
-test('translates 2 digit day of the month', () => {
+test('translates 2 digit day of the month (DD)', () => {
   const tokens = momentTranslator(['DD'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -114,7 +114,7 @@ test('translates 2 digit day of the month', () => {
   expect(regex.test('32')).toBe(false)
 })
 
-test('translates day of the year', () => {
+test('translates day of the year (DDD)', () => {
   const tokens = momentTranslator(['DDD'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -127,7 +127,7 @@ test('translates day of the year', () => {
   expect(regex.test('366')).toBe(false)
 })
 
-test('translates day of the year with ordinal', () => {
+test('translates day of the year with ordinal (DDDo)', () => {
   const tokens = momentTranslator(['DDDo'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -141,7 +141,7 @@ test('translates day of the year with ordinal', () => {
   expect(regex.test('366th')).toBe(false)
 })
 
-test('translates 3 digit day of the year', () => {
+test('translates 3 digit day of the year (DDDD)', () => {
   const tokens = momentTranslator(['DDDD'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -155,7 +155,7 @@ test('translates 3 digit day of the year', () => {
   expect(regex.test('366')).toBe(false)
 })
 
-test('translates 0-indexed day of week', () => {
+test('translates 0-indexed day of week (d)', () => {
   const tokens = momentTranslator(['d'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -167,7 +167,7 @@ test('translates 0-indexed day of week', () => {
   expect(regex.test('01')).toBe(false)
 })
 
-test('translates 0-indexed day of week with ordinal', () => {
+test('translates 0-indexed day of week with ordinal (do)', () => {
   const tokens = momentTranslator(['do'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -180,7 +180,7 @@ test('translates 0-indexed day of week with ordinal', () => {
   expect(regex.test('01st')).toBe(false)
 })
 
-test('translates day of week', () => {
+test('translates day of week (dd)', () => {
   const tokens = momentTranslator(['dd'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -192,7 +192,7 @@ test('translates day of week', () => {
   expect(regex.test('Te')).toBe(false)
 })
 
-test('translates day of week', () => {
+test('translates day of week (ddd)', () => {
   const tokens = momentTranslator(['ddd'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -204,7 +204,7 @@ test('translates day of week', () => {
   expect(regex.test('Man')).toBe(false)
 })
 
-test('translates day of week', () => {
+test('translates day of week (dddd)', () => {
   const tokens = momentTranslator(['dddd'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -216,7 +216,7 @@ test('translates day of week', () => {
   expect(regex.test('Fridat')).toBe(false)
 })
 
-test('translates day of week (Locale)', () => {
+test('translates day of week (Locale) (e)', () => {
   const tokens = momentTranslator(['e'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -228,7 +228,7 @@ test('translates day of week (Locale)', () => {
   expect(regex.test('03')).toBe(false)
 })
 
-test('translates day of week (ISO)', () => {
+test('translates day of week (ISO) (E)', () => {
   const tokens = momentTranslator(['E'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -240,7 +240,7 @@ test('translates day of week (ISO)', () => {
   expect(regex.test('01')).toBe(false)
 })
 
-test('translates week of year', () => {
+test('translates week of year (w)', () => {
   const tokens = momentTranslator(['w'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -264,7 +264,7 @@ test('translates week of year with ordinal', () => {
   expect(regex.test('02nd')).toBe(false)
 })
 
-test('translates 2 digit week of year', () => {
+test('translates 2 digit week of year (ww)', () => {
   const tokens = momentTranslator(['ww'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -276,7 +276,7 @@ test('translates 2 digit week of year', () => {
   expect(regex.test('1')).toBe(false)
 })
 
-test('translates week of year', () => {
+test('translates week of year (W)', () => {
   const tokens = momentTranslator(['W'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -288,7 +288,7 @@ test('translates week of year', () => {
   expect(regex.test('01')).toBe(false)
 })
 
-test('translates week of year with ordinal', () => {
+test('translates week of year with ordinal (Wo)', () => {
   const tokens = momentTranslator(['Wo'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -300,7 +300,7 @@ test('translates week of year with ordinal', () => {
   expect(regex.test('02nd')).toBe(false)
 })
 
-test('translates 2 digit week of year with ordinal', () => {
+test('translates 2 digit week of year (WW)', () => {
   const tokens = momentTranslator(['WW'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -312,7 +312,7 @@ test('translates 2 digit week of year with ordinal', () => {
   expect(regex.test('1')).toBe(false)
 })
 
-test('translates 2 digit year', () => {
+test('translates 2 digit year (YY)', () => {
   const tokens = momentTranslator(['YY'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -324,7 +324,7 @@ test('translates 2 digit year', () => {
   expect(regex.test('118')).toBe(false)
 })
 
-test('translates 4 digit year', () => {
+test('translates 4 digit year (YYYY)', () => {
   const tokens = momentTranslator(['YYYY'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -337,7 +337,7 @@ test('translates 4 digit year', () => {
   expect(regex.test('+11875')).toBe(false)
 })
 
-test('translates 4+ digit year', () => {
+test('translates 4+ digit year (Y)', () => {
   const tokens = momentTranslator(['Y'])
   const regex = new RegExp('^(' + tokens[0] + ')$')
 
@@ -351,4 +351,54 @@ test('translates 4+ digit year', () => {
   expect(regex.test('435671')).toBe(false)
   expect(regex.test('+435671')).toBe(true)
   expect(regex.test('+2019')).toBe(false)
+})
+
+test('translates 2 digit week year (gg)', () => {
+  const tokens = momentTranslator(['gg'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('00')).toBe(true)
+  expect(regex.test('36')).toBe(true)
+  expect(regex.test('99')).toBe(true)
+  expect(regex.test('53')).toBe(true)
+  expect(regex.test('9')).toBe(false)
+  expect(regex.test('118')).toBe(false)
+})
+
+test('translates 4 digit week year (gggg)', () => {
+  const tokens = momentTranslator(['gggg'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('2000')).toBe(true)
+  expect(regex.test('3016')).toBe(true)
+  expect(regex.test('2899')).toBe(true)
+  expect(regex.test('1653')).toBe(true)
+  expect(regex.test('209')).toBe(false)
+  expect(regex.test('11875')).toBe(false)
+  expect(regex.test('+11875')).toBe(false)
+})
+
+test('translates 2 digit week year (ISO) (GG)', () => {
+  const tokens = momentTranslator(['GG'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('00')).toBe(true)
+  expect(regex.test('36')).toBe(true)
+  expect(regex.test('99')).toBe(true)
+  expect(regex.test('53')).toBe(true)
+  expect(regex.test('9')).toBe(false)
+  expect(regex.test('118')).toBe(false)
+})
+
+test('translates 4 digit week year (ISO) (GGGG)', () => {
+  const tokens = momentTranslator(['GGGG'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('2000')).toBe(true)
+  expect(regex.test('3016')).toBe(true)
+  expect(regex.test('2899')).toBe(true)
+  expect(regex.test('1653')).toBe(true)
+  expect(regex.test('209')).toBe(false)
+  expect(regex.test('11875')).toBe(false)
+  expect(regex.test('+11875')).toBe(false)
 })
