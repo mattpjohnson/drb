@@ -65,6 +65,9 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="drb-date-regex-builder-omit-in-toc-">drb (Date Regex Builder) <!-- omit in toc --></h1>
+				<blockquote>
+					<p>Easily build date regular expressions</p>
+				</blockquote>
 				<p>
 					<a href="https://travis-ci.org/mattpjohnson/drb">
 						<img alt="Travis CI Build Status" src="https://img.shields.io/travis/mattpjohnson/drb/master.svg?style=flat&label=Travis+CI">
@@ -85,88 +88,31 @@
 						<img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat">
 					</a>
 				</p>
-				<p>A boilerplate with some sane defaults for building TypeScript libraries to be consumed by both browsers and Node.js projects.</p>
+				<p>A library to aide in generating regular expressions to match dates. See the <a href="https://mattpjohnson.github.io/drb">documentation</a>.</p>
 				<h1 id="table-of-contents-omit-in-toc-">Table of Contents <!-- omit in toc --></h1>
 				<ul>
-					<li><a href="#whats-included">What&#39;s Included</a></li>
-					<li><a href="#setting-up-your-development-environment">Setting Up Your Development Environment</a></li>
-					<li><a href="#setting-up-circleci">Setting Up CircleCI</a></li>
-					<li><a href="#setting-up-travis-ci">Setting Up Travis CI</a></li>
-					<li><a href="#setting-up-gitlab-ci">Setting Up GitLab CI</a></li>
-					<li><a href="#setting-up-codecov">Setting Up Codecov</a></li>
-					<li><a href="#setting-up-sonarqube">Setting Up SonarQube</a></li>
+					<li><a href="#purpose">Purpose</a></li>
+					<li><a href="#installation">Installation</a></li>
+					<li><a href="#usage">Usage</a></li>
 					<li><a href="#license">License</a></li>
 				</ul>
-				<h1 id="what-s-included">What&#39;s Included</h1>
-				<p>This project includes tooling for</p>
-				<ul>
-					<li><a href="https://www.typescriptlang.org/">TypeScript</a> to add static typing to JavaScript</li>
-					<li><a href="https://jestjs.io/">Jest</a> for automated testing</li>
-					<li><a href="https://editorconfig.org/">EditorConfig</a> for consistent coding styles</li>
-					<li><a href="https://prettier.io/">Prettier</a> for code formatting</li>
-					<li><a href="https://palantir.github.io/tslint/">TSLint</a> for linting per prettier rules</li>
-					<li><a href="https://rollupjs.org/">rollup.js</a> for module bundling and tree-shaking</li>
-				</ul>
-				<p>With easy integrations for</p>
-				<ul>
-					<li><a href="https://circleci.com/">CircleCI</a> for continuous integration</li>
-					<li><a href="https://travis-ci.org/">Travis CI</a> for continuous integration</li>
-					<li><a href="https://about.gitlab.com/features/gitlab-ci-cd/">GitLab CI</a> for continuous integration</li>
-					<li><a href="https://codecov.io/gh/">Codecov</a> for code coverage reports</li>
-					<li><a href="https://www.sonarqube.org/">SonarQube</a> to ensure code quality</li>
-				</ul>
-				<h1 id="setting-up-your-development-environment">Setting Up Your Development Environment</h1>
-				<p>It is recommended that you install the following extensions for your editor:</p>
-				<ul>
-					<li><a href="https://editorconfig.org/">EditorConfig</a></li>
-					<li><a href="https://prettier.io/">Prettier</a></li>
-					<li><a href="https://palantir.github.io/tslint/">TSLint</a></li>
-				</ul>
-				<p>If you&#39;re using VSCode all the recommended extensions are included in <a href="">this extension pack</a>.</p>
-				<h1 id="setting-up-circleci">Setting Up CircleCI</h1>
-				<p>Login to <a href="https://circleci.com/">CircleCI</a> and select &quot;Add Projects&quot; in the left-hand sidebar.<br>
-					Scroll down until you find your project and click &quot;Set Up Project&quot;.<br>
-				For Operating System choose Linux and then click the &quot;Start Building&quot; button located at the bottom of the page.</p>
-				<p>If you aren&#39;t using SonarQube you&#39;ll want to remove <code>&amp;&amp; ./sonarqube.sh</code> from the run command in .circleci/config.yml. <br>
-				If you would like to use SonarQube make sure you setup SonarQube following the instructions below.</p>
-				<p>If you don&#39;t setup or disable SonarQube then CircleCI will fail with the message<br>
-					<code>You&#39;re only authorized to execute a local (preview) SonarQube</code><br>
-					<code>analysis without pushing the results to the SonarQube server.</code><br>
-				<code>Please contact your SonarQube administrator.</code></p>
-				<h1 id="setting-up-travis-ci">Setting Up Travis CI</h1>
-				<p>Login to <a href="https://travis-ci.org/">https://travis-ci.org/</a> and click the &quot;+&quot; next to &quot;My Repositories&quot;.<br>
-					Click the toggle next to your project.<br>
-				And that&#39;s it! Your project will build next time you push to your repository.</p>
-				<h1 id="setting-up-gitlab-ci">Setting Up GitLab CI</h1>
-				<p>If your code is hosted on GitLab:</p>
-				<ul>
-					<li>From within your GitLab repository, click on &quot;CI/CD&quot; in the left-hand sidebar and click &quot;Run Pipeline&quot; then &quot;Create Pipeline&quot;.</li>
-				</ul>
-				<p>If your code is hosted on GitHub:</p>
-				<ul>
-					<li>From <a href="https://gitlab.com/">https://gitlab.com/</a> click &quot;New project&quot; and select &quot;CI/CD for external repo&quot;.<br>
-					Click &quot;GitHub&quot; and then click &quot;Connect&quot; next to your project.</li>
-				</ul>
-				<h1 id="setting-up-codecov">Setting Up Codecov</h1>
-				<p>Login to <a href="https://codecov.io/gh">https://codecov.io/gh</a> and give them access to your git hosting account.<br>
-				Copy your Upload Token and add it with the key <code>CODECOV_TOKEN</code> as an environment variable to the CI service of your choice.</p>
-				<p>Here are some links to docs for setting up environment variables with the CI services this project supports:</p>
-				<ul>
-					<li><a href="https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project">CircleCI</a> - Setting an Environment Variable in a Project</li>
-					<li><a href="https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings">Travis CI</a> - Defining Variables in Repository Settings</li>
-					<li><a href="https://docs.gitlab.com/ee/ci/variables/#variables">GitLab CI</a> - Variables</li>
-				</ul>
-				<p>Congrats! After your next CI run you will see coverage reports.</p>
-				<blockquote>
-					<p>Reminder: Don&#39;t forget to update the badge in README.md to point to your project in codecov</p>
-				</blockquote>
-				<h1 id="setting-up-sonarqube">Setting Up SonarQube</h1>
-				<p>Login to <a href="https://sonarcloud.io/">https://sonarcloud.io/</a> and click &quot;Create new project&quot;.<br>
-					Select your repository and click &quot;Create&quot;.<br>
-					Enter a name for your token and click &quot;Generate&quot;.<br>
-				Copy the token that was generated and add it as an environment variable with the key <code>SONAR_LOGIN</code> to your CI project.</p>
-				<p>If you&#39;re not using CircleCI then update your CI run script to call <code>./sonarqube.sh</code> after build.</p>
-				<p>After your next CI run you will see code quality analysis in SonarQube.</p>
+				<h1 id="purpose">Purpose</h1>
+				<p>Regular expressions are difficult and can get messy pretty quickly. Consider creating a regular expression to match a day of the month. A naïve attempt might be to create a regex that matches two digits:
+					<code>\d{2}</code>
+					But there&#39;s a problem with this - 99 matches and is not a valid day of the month. So we can refactor this to be a little more clever:
+					<code>[0-3][0-9]</code>
+					This is closer to what we want, but it still matches 35.
+					<code>[0-2][0-9]|3[0-1]</code>
+					We&#39;re almost there. Valid dates still match correctly, and 32+ numbers are not matching, which is what we want. However, <code>00</code> generates a match when using this regex. We can finally meet all of the requirements with the following regex:
+					<code>0[1-9]|[1-2][0-9]|3[0-1]</code>
+					Using drb, this regex is easy to generate:
+					<code>const drbMoment = drb(momentFormatter)</code>
+				<code>const regex = drbMoment(&#39;DD&#39;)</code></p>
+				<h1 id="installation">Installation</h1>
+				<p>You can install drb using npm
+				<code>npm install --save drb</code></p>
+				<h1 id="usage">Usage</h1>
+				<p>TODO</p>
 				<h1 id="license">License</h1>
 				<p>MIT</p>
 			</div>
