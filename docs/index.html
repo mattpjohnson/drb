@@ -97,17 +97,18 @@
 					<li><a href="#license">License</a></li>
 				</ul>
 				<h1 id="purpose">Purpose</h1>
-				<p>Regular expressions are difficult and can get messy pretty quickly. Consider creating a regular expression to match a day of the month. A naïve attempt might be to create a regex that matches two digits:</p>
+				<p>Regular expressions are difficult to get right and can get messy pretty quickly. Consider creating a regular expression to match a day of the month. A naïve attempt might be to create a regex that matches two digits:</p>
 				<pre><code class="language-shell">\d{2}</code></pre>
-				<p>But there&#39;s a problem with this - <code>99</code> matches and is not a valid day of the month. So we can refactor this to be a little more clever:</p>
+				<p>But there&#39;s a problem with this - <code>99</code> matches this regular expression and is not a valid day of the month. So we must refactor this to be a little more clever:</p>
 				<pre><code class="language-shell">[0-3][0-9]</code></pre>
-				<p>This is closer to what we want, but it still matches <code>35</code>.</p>
+				<p>This is closer to what we want, but it still matches numbers from <code>32</code> to <code>39</code>.</p>
 				<pre><code class="language-shell">[0-2][0-9]|3[0-1]</code></pre>
-				<p>We&#39;re almost there. Valid dates still match correctly, and <code>32+</code> numbers are not matching, which is what we want. However, <code>00</code> generates a match when using this regex. We can finally meet all of the requirements with the following regex:</p>
+				<p>We&#39;re almost there. Valid dates still match correctly, and <code>32+</code> numbers are not matching, which is what we want. However, <code>00</code> generates a false-positive match when using this regex. We can finally meet all of the requirements with the following regex:</p>
 				<pre><code class="language-shell">0[1-9]|[1-2][0-9]|3[0-1]</code></pre>
 				<p>Using drb, this regex is easy to generate:</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> drbMoment = drb(momentFormatter)
-<span class="hljs-keyword">const</span> regex = drbMoment(<span class="hljs-string">'DD'</span>)</code></pre>
+<span class="hljs-keyword">const</span> regex = drbMoment(<span class="hljs-string">'DD'</span>)
+<span class="hljs-built_in">console</span>.log(regex) <span class="hljs-comment">// (0[1-9]|[1-2][0-9]|3[0-1])</span></code></pre>
 				<h1 id="installation">Installation</h1>
 				<p>You can install drb using npm</p>
 				<pre><code class="language-shell">npm install --save drb</code></pre>
