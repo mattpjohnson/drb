@@ -35,21 +35,43 @@ A library to aide in generating regular expressions to match dates. See the [doc
 # Purpose
 
 Regular expressions are difficult and can get messy pretty quickly. Consider creating a regular expression to match a day of the month. A naïve attempt might be to create a regex that matches two digits:
-`\d{2}`
-But there's a problem with this - 99 matches and is not a valid day of the month. So we can refactor this to be a little more clever:
-`[0-3][0-9]`
-This is closer to what we want, but it still matches 35.
-`[0-2][0-9]|3[0-1]`
-We're almost there. Valid dates still match correctly, and 32+ numbers are not matching, which is what we want. However, `00` generates a match when using this regex. We can finally meet all of the requirements with the following regex:
-`0[1-9]|[1-2][0-9]|3[0-1]`
+
+```shell
+\d{2}
+```
+
+But there's a problem with this - `99` matches and is not a valid day of the month. So we can refactor this to be a little more clever:
+
+```shell
+[0-3][0-9]
+```
+
+This is closer to what we want, but it still matches `35`.
+
+```shell
+[0-2][0-9]|3[0-1]
+```
+
+We're almost there. Valid dates still match correctly, and `32+` numbers are not matching, which is what we want. However, `00` generates a match when using this regex. We can finally meet all of the requirements with the following regex:
+
+```shell
+0[1-9]|[1-2][0-9]|3[0-1]
+```
+
 Using drb, this regex is easy to generate:
-`const drbMoment = drb(momentFormatter)`
-`const regex = drbMoment('DD')`
+
+```javascript
+const drbMoment = drb(momentFormatter)
+const regex = drbMoment('DD')
+```
 
 # Installation
 
 You can install drb using npm
-`npm install --save drb`
+
+```shell
+npm install --save drb
+```
 
 # Usage
 
