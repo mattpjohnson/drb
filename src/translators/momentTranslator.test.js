@@ -502,3 +502,239 @@ test('translates 1-indexed, 2 digit, 24-hour hour (kk)', () => {
   expect(regex.test('4')).toBe(false)
   expect(regex.test('121')).toBe(false)
 })
+
+test('translates 0-indexed minute (m)', () => {
+  const tokens = momentTranslator(['m'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('0')).toBe(true)
+  expect(regex.test('7')).toBe(true)
+  expect(regex.test('43')).toBe(true)
+  expect(regex.test('59')).toBe(true)
+  expect(regex.test('60')).toBe(false)
+  expect(regex.test('07')).toBe(false)
+})
+
+test('translates 0-indexed, 2 digit minute (mm)', () => {
+  const tokens = momentTranslator(['mm'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('00')).toBe(true)
+  expect(regex.test('07')).toBe(true)
+  expect(regex.test('43')).toBe(true)
+  expect(regex.test('59')).toBe(true)
+  expect(regex.test('60')).toBe(false)
+  expect(regex.test('7')).toBe(false)
+})
+
+test('translates 0-indexed second (s)', () => {
+  const tokens = momentTranslator(['s'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('0')).toBe(true)
+  expect(regex.test('7')).toBe(true)
+  expect(regex.test('43')).toBe(true)
+  expect(regex.test('59')).toBe(true)
+  expect(regex.test('60')).toBe(false)
+  expect(regex.test('07')).toBe(false)
+})
+
+test('translates 0-indexed, 2 digit second (ss)', () => {
+  const tokens = momentTranslator(['ss'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('00')).toBe(true)
+  expect(regex.test('07')).toBe(true)
+  expect(regex.test('43')).toBe(true)
+  expect(regex.test('59')).toBe(true)
+  expect(regex.test('60')).toBe(false)
+  expect(regex.test('7')).toBe(false)
+})
+
+test('translates 1 digit fractional second (S)', () => {
+  const tokens = momentTranslator(['S'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('0')).toBe(true)
+  expect(regex.test('7')).toBe(true)
+  expect(regex.test('9')).toBe(true)
+  expect(regex.test('10')).toBe(false)
+  expect(regex.test('08')).toBe(false)
+})
+
+test('translates 2 digit fractional second (SS)', () => {
+  const tokens = momentTranslator(['SS'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('00')).toBe(true)
+  expect(regex.test('07')).toBe(true)
+  expect(regex.test('99')).toBe(true)
+  expect(regex.test('100')).toBe(false)
+  expect(regex.test('8')).toBe(false)
+})
+
+test('translates 3 digit fractional second (SSS)', () => {
+  const tokens = momentTranslator(['SSS'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('000')).toBe(true)
+  expect(regex.test('007')).toBe(true)
+  expect(regex.test('487')).toBe(true)
+  expect(regex.test('999')).toBe(true)
+  expect(regex.test('1000')).toBe(false)
+  expect(regex.test('8')).toBe(false)
+  expect(regex.test('80')).toBe(false)
+  expect(regex.test('08')).toBe(false)
+})
+
+test('translates 4 digit fractional second (SSSS)', () => {
+  const tokens = momentTranslator(['SSSS'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('0000')).toBe(true)
+  expect(regex.test('0007')).toBe(true)
+  expect(regex.test('2834')).toBe(true)
+  expect(regex.test('9999')).toBe(true)
+  expect(regex.test('10000')).toBe(false)
+  expect(regex.test('8')).toBe(false)
+})
+
+test('translates 5 digit fractional second (SSSSS)', () => {
+  const tokens = momentTranslator(['SSSSS'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('00000')).toBe(true)
+  expect(regex.test('00007')).toBe(true)
+  expect(regex.test('45687')).toBe(true)
+  expect(regex.test('99999')).toBe(true)
+  expect(regex.test('100000')).toBe(false)
+  expect(regex.test('8')).toBe(false)
+})
+
+test('translates 6 digit fractional second (SSSSSS)', () => {
+  const tokens = momentTranslator(['SSSSSS'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('000000')).toBe(true)
+  expect(regex.test('000007')).toBe(true)
+  expect(regex.test('773845')).toBe(true)
+  expect(regex.test('999999')).toBe(true)
+  expect(regex.test('1000000')).toBe(false)
+  expect(regex.test('8')).toBe(false)
+})
+
+test('translates 7 digit fractional second (SSSSSSS)', () => {
+  const tokens = momentTranslator(['SSSSSSS'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('0000000')).toBe(true)
+  expect(regex.test('0000007')).toBe(true)
+  expect(regex.test('4384757')).toBe(true)
+  expect(regex.test('9999999')).toBe(true)
+  expect(regex.test('10000000')).toBe(false)
+  expect(regex.test('8')).toBe(false)
+})
+
+test('translates 8 digit fractional second (SSSSSSSS)', () => {
+  const tokens = momentTranslator(['SSSSSSSS'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('00000000')).toBe(true)
+  expect(regex.test('00000007')).toBe(true)
+  expect(regex.test('28475637')).toBe(true)
+  expect(regex.test('99999999')).toBe(true)
+  expect(regex.test('100000000')).toBe(false)
+  expect(regex.test('8')).toBe(false)
+})
+
+test('translates 9 digit fractional second (SSSSSSSSS)', () => {
+  const tokens = momentTranslator(['SSSSSSSSS'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('000000000')).toBe(true)
+  expect(regex.test('000000007')).toBe(true)
+  expect(regex.test('456434587')).toBe(true)
+  expect(regex.test('999999999')).toBe(true)
+  expect(regex.test('1000000000')).toBe(false)
+  expect(regex.test('8')).toBe(false)
+})
+
+test('translates time zone (z)', () => {
+  const tokens = momentTranslator(['z'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('EST')).toBe(true)
+  expect(regex.test('CST')).toBe(true)
+  expect(regex.test('MST')).toBe(true)
+  expect(regex.test('PST')).toBe(true)
+  expect(regex.test('POT')).toBe(false)
+  expect(regex.test('ET')).toBe(false)
+})
+
+test('translates time zone (zz)', () => {
+  const tokens = momentTranslator(['zz'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('EST')).toBe(true)
+  expect(regex.test('CST')).toBe(true)
+  expect(regex.test('MST')).toBe(true)
+  expect(regex.test('PST')).toBe(true)
+  expect(regex.test('POT')).toBe(false)
+  expect(regex.test('ET')).toBe(false)
+})
+
+test('translates 4 digit time zone (Z)', () => {
+  const tokens = momentTranslator(['Z'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('+04:00')).toBe(true)
+  expect(regex.test('+00:00')).toBe(true)
+  expect(regex.test('+12:00')).toBe(true)
+  expect(regex.test('-12:00')).toBe(true)
+  expect(regex.test('+13:00')).toBe(false)
+  expect(regex.test('-13:00')).toBe(false)
+  expect(regex.test('+4:00')).toBe(false)
+})
+
+test('translates 4 digit time zone (ZZ)', () => {
+  const tokens = momentTranslator(['ZZ'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('+0400')).toBe(true)
+  expect(regex.test('+0000')).toBe(true)
+  expect(regex.test('+1200')).toBe(true)
+  expect(regex.test('-1200')).toBe(true)
+  expect(regex.test('+1300')).toBe(false)
+  expect(regex.test('-1300')).toBe(false)
+  expect(regex.test('+400')).toBe(false)
+})
+
+test('translates unix timestamp (X)', () => {
+  const tokens = momentTranslator(['X'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('0000000000')).toBe(true)
+  expect(regex.test('0000013296')).toBe(true)
+  expect(regex.test('1360013296')).toBe(true)
+  expect(regex.test('1553308383')).toBe(true)
+  expect(regex.test('2057483647')).toBe(true)
+  expect(regex.test('2099999999')).toBe(true)
+  expect(regex.test('2147483647')).toBe(true)
+  expect(regex.test('2147483648')).toBe(false)
+  expect(regex.test('21474836')).toBe(false)
+})
+
+test('translates unix timestamp (x)', () => {
+  const tokens = momentTranslator(['x'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('0000000000000')).toBe(true)
+  expect(regex.test('0000000013296')).toBe(true)
+  expect(regex.test('1360013296123')).toBe(true)
+  expect(regex.test('1553308323483')).toBe(true)
+  expect(regex.test('2057482343647')).toBe(true)
+  expect(regex.test('2099999999999')).toBe(true)
+  expect(regex.test('2147483647000')).toBe(true)
+  expect(regex.test('2147483647001')).toBe(false)
+  expect(regex.test('21474836')).toBe(false)
+})
