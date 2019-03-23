@@ -55,3 +55,58 @@ test('MMDDYYYY is false for invalid inputs', () => {
     expect(regex.test(input)).toBe(false)
   }
 })
+
+test('dddd, MMMM Do YYYY, h:mm:ss a', () => {
+  const regex = new RegExp(
+    '^' + drbMoment('dddd, MMMM Do YYYY, h:mm:ss a') + '$'
+  )
+
+  expect(regex.test('Sunday, February 14th 2010, 3:25:50 pm')).toBe(true)
+})
+
+test('ddd, hA', () => {
+  const regex = new RegExp('^' + drbMoment('ddd, hA') + '$')
+
+  expect(regex.test('Sun, 3PM')).toBe(true)
+})
+
+test('ddd MMM DD YYYY HH: mm: SS zz ZZ', () => {
+  const regex = new RegExp(
+    '^' + drbMoment('ddd MMM DD YYYY HH: mm: SS zz ZZ') + '$'
+  )
+
+  expect(regex.test('Fri Mar 22 2019 21: 28: 20 GMT -0700')).toBe(true)
+})
+
+test('ddd, DD MMM YYYY HH: mm: SS ZZ', () => {
+  const regex = new RegExp(
+    '^' + drbMoment('ddd, DD MMM YYYY HH: mm: SS ZZ') + '$'
+  )
+
+  expect(regex.test('Fri, 09 Sep 2005 13: 51: 39 -0700')).toBe(true)
+})
+
+test('Mo, Qo, Do, DDDo, do, wo, Wo', () => {
+  const regex = new RegExp(
+    '^' + drbMoment('Mo, Qo, Do, DDDo, do, wo, Wo') + '$'
+  )
+
+  expect(regex.test('12th, 3rd, 22nd, 257th, 0th, 52nd, 43rd')).toBe(true)
+})
+
+test('YYYY-MM-DD zz', () => {
+  const regex = new RegExp('^' + drbMoment('YYYY-MM-DD zz') + '$')
+
+  expect(regex.test('2000-01-01 UTC')).toBe(true)
+})
+
+test('YYYY-MM-DD zz SSSSSSSSS', () => {
+  const regex = new RegExp('^' + drbMoment('YYYY-MM-DD zz SSSSSSSSS') + '$')
+
+  expect(regex.test('1970-01-01 UTC 946684800')).toBe(true)
+})
+
+test('YYYY-MM-DD HH:mm:ss ZZ', () => {
+  const regex = new RegExp('^' + drbMoment('YYYY-MM-DD HH:mm:ss ZZ') + '$')
+  expect(regex.test('2012-06-30 23:59:59 +0000')).toBe(true)
+})
