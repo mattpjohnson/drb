@@ -72,4 +72,41 @@ const tokenLookup: { [token: string]: string } = {
   x: toRegexRange('0000000000000', '2147483647000'),
 }
 
+function combineTokens(...tokens: string[]) {
+  return (
+    '(?:' + tokens.map(token => tokenLookup[token] || token).join(')(?:') + ')'
+  )
+}
+
+tokenLookup['LT'] = combineTokens('h', ':', 'mm', ' ', 'A')
+tokenLookup['LTS'] = combineTokens('h', ':', 'mm', ':', 'ss', ' ', 'A')
+tokenLookup['L'] = combineTokens('MM', '/', 'DD', '/', 'YYYY')
+tokenLookup['l'] = combineTokens('M', '/', 'D', '/', 'YYYY')
+tokenLookup['LL'] = combineTokens('MMMM', ' ', 'D', ', ', 'YYYY')
+tokenLookup['ll'] = combineTokens('MMM', ' ', 'D', ', ', 'YYYY')
+tokenLookup['LLL'] = combineTokens('MMMM', ' ', 'D', ', ', 'YYYY', ' ', 'LT')
+tokenLookup['lll'] = combineTokens('MMM', ' ', 'D', ', ', 'YYYY', ' ', 'LT')
+tokenLookup['LLLL'] = combineTokens(
+  'dddd',
+  ', ',
+  'MMMM',
+  ' ',
+  'D',
+  ', ',
+  'YYYY',
+  ' ',
+  'LT'
+)
+tokenLookup['llll'] = combineTokens(
+  'ddd',
+  ', ',
+  'MMM',
+  ' ',
+  'D',
+  ', ',
+  'YYYY',
+  ' ',
+  'LT'
+)
+
 export const momentTranslator: DrbTranslator = lookupTranslator(tokenLookup)

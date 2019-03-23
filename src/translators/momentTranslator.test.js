@@ -738,3 +738,115 @@ test('translates unix timestamp (x)', () => {
   expect(regex.test('2147483647001')).toBe(false)
   expect(regex.test('21474836')).toBe(false)
 })
+
+test('translates time (LT)', () => {
+  const tokens = momentTranslator(['LT'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('8:30 PM')).toBe(true)
+  expect(regex.test('6:55 AM')).toBe(true)
+  expect(regex.test('1:00 PM')).toBe(true)
+  expect(regex.test('0:00 PM')).toBe(false)
+  expect(regex.test('01:00 PM')).toBe(false)
+  expect(regex.test('1:00')).toBe(false)
+})
+
+test('translates time with seconds (LTS)', () => {
+  const tokens = momentTranslator(['LTS'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('8:30:00 PM')).toBe(true)
+  expect(regex.test('6:55:23 AM')).toBe(true)
+  expect(regex.test('1:00:12 PM')).toBe(true)
+  expect(regex.test('0:00:00 PM')).toBe(false)
+  expect(regex.test('01:00:00 PM')).toBe(false)
+  expect(regex.test('1:00:00')).toBe(false)
+})
+
+test('translates date (L)', () => {
+  const tokens = momentTranslator(['L'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('09/04/1986')).toBe(true)
+  expect(regex.test('12/10/2019')).toBe(true)
+  expect(regex.test('01/01/2001')).toBe(true)
+  expect(regex.test('1/1/2019')).toBe(false)
+  expect(regex.test('09/04/86')).toBe(false)
+})
+
+test('translates date (l)', () => {
+  const tokens = momentTranslator(['l'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('9/4/1986')).toBe(true)
+  expect(regex.test('12/10/2019')).toBe(true)
+  expect(regex.test('1/1/2001')).toBe(true)
+  expect(regex.test('01/01/2019')).toBe(false)
+  expect(regex.test('9/4/86')).toBe(false)
+})
+
+test('translates date (LL)', () => {
+  const tokens = momentTranslator(['LL'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('September 4, 1986')).toBe(true)
+  expect(regex.test('January 8, 2017')).toBe(true)
+  expect(regex.test('February 31, 2003')).toBe(true)
+  expect(regex.test('March 32, 2005')).toBe(false)
+  expect(regex.test('March 1, 200')).toBe(false)
+})
+
+test('translates date (ll)', () => {
+  const tokens = momentTranslator(['ll'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('Sep 4, 1986')).toBe(true)
+  expect(regex.test('Jan 8, 2017')).toBe(true)
+  expect(regex.test('Feb 31, 2003')).toBe(true)
+  expect(regex.test('Mar 32, 2005')).toBe(false)
+  expect(regex.test('Mar 1, 200')).toBe(false)
+})
+
+test('translates date (LLL)', () => {
+  const tokens = momentTranslator(['LLL'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('September 4, 1986 8:30 PM')).toBe(true)
+  expect(regex.test('January 8, 2017 12:59 AM')).toBe(true)
+  expect(regex.test('February 31, 2003 12:00 PM')).toBe(true)
+  expect(regex.test('March 32, 2005 6:30 AM')).toBe(false)
+  expect(regex.test('March 1, 200 5:23 AM')).toBe(false)
+})
+
+test('translates date (lll)', () => {
+  const tokens = momentTranslator(['lll'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('Sep 4, 1986 3:30 AM')).toBe(true)
+  expect(regex.test('Jan 8, 2017 12:45 PM')).toBe(true)
+  expect(regex.test('Feb 31, 2003 7:54 PM')).toBe(true)
+  expect(regex.test('Mar 32, 2005 8:12 AM')).toBe(false)
+  expect(regex.test('Mar 1, 200 11:42 AM')).toBe(false)
+})
+
+test('translates date (LLLL)', () => {
+  const tokens = momentTranslator(['LLLL'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('Monday, September 4, 1986 8:30 PM')).toBe(true)
+  expect(regex.test('Tuesday, January 8, 2017 12:59 AM')).toBe(true)
+  expect(regex.test('Wednesday, February 31, 2003 12:00 PM')).toBe(true)
+  expect(regex.test('Thursday, March 32, 2005 6:30 AM')).toBe(false)
+  expect(regex.test('Friday, March 1, 200 5:23 AM')).toBe(false)
+})
+
+test('translates date (llll)', () => {
+  const tokens = momentTranslator(['llll'])
+  const regex = new RegExp('^(' + tokens[0] + ')$')
+
+  expect(regex.test('Mon, Sep 4, 1986 3:30 AM')).toBe(true)
+  expect(regex.test('Tue, Jan 8, 2017 12:45 PM')).toBe(true)
+  expect(regex.test('Wed, Feb 31, 2003 7:54 PM')).toBe(true)
+  expect(regex.test('Thu, Mar 32, 2005 8:12 AM')).toBe(false)
+  expect(regex.test('Fri, Mar 1, 200 11:42 AM')).toBe(false)
+})
