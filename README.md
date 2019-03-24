@@ -1,4 +1,4 @@
-# drb (Date Regex Builder) <!-- omit in toc -->
+# drb <!-- omit in toc -->
 
 > Easily build date regular expressions
 
@@ -23,7 +23,7 @@
   </a>
 </p>
 
-A library to aide in generating regular expressions to match dates. See the [documentation](https://mattpjohnson.github.io/drb).
+drb (Date Regex Builder) is a library to aide in generating regular expressions to match dates. See the [documentation](https://mattpjohnson.github.io/drb).
 
 # Table of Contents <!-- omit in toc -->
 
@@ -34,7 +34,7 @@ A library to aide in generating regular expressions to match dates. See the [doc
 
 # Purpose
 
-Regular expressions are difficult to get right and can get messy pretty quickly. Consider creating a regular expression to match a day of the month. A naïve attempt might be to create a regex that matches two digits:
+Regular expressions are difficult to get right and can get messy quickly. Consider creating a regular expression to match a day of the month. A naïve attempt might be to create a regex that matches two digits:
 
 ```shell
 \d{2}
@@ -68,15 +68,48 @@ console.log(regex) // (0[1-9]|[1-2][0-9]|3[0-1])
 
 # Installation
 
-You can install drb using npm
+Install with [npm](https://npmjs.com):
 
-```shell
-npm install --save drb
+```sh
+$ npm install --save drb
+```
+
+Or optionally using [yarn](https://yarnpkg.com)
+
+```sh
+$ yarn add drb
 ```
 
 # Usage
 
-TODO
+Import drb and a formatter (currently only moment is supported) using one of these methods:
+
+## Node.js
+
+```javascript
+const { drb } = require('drb')
+const { drbMoment } = require('drb/formatters/drbMoment')
+```
+
+## ES6/TypeScript
+
+```javascript
+import { drb } from 'drb'
+import { drbMoment } from 'drb/formatters/drbMoment'
+```
+
+Now combine drb with a formatter
+
+```javascript
+const drbMoment = drb(momentFormatter)
+```
+
+Use `drbMoment` to create regexes using the syntax provided by [Moment.js](http://momentjs.com)
+
+```javascript
+const regex = drbMoment('DD')
+console.log(regex) // (0[1-9]|[1-2][0-9]|3[0-1])
+```
 
 # License
 

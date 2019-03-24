@@ -64,7 +64,7 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="drb-date-regex-builder-omit-in-toc-">drb (Date Regex Builder) <!-- omit in toc --></h1>
+				<h1 id="drb-omit-in-toc-">drb <!-- omit in toc --></h1>
 				<blockquote>
 					<p>Easily build date regular expressions</p>
 				</blockquote>
@@ -88,7 +88,7 @@
 						<img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat">
 					</a>
 				</p>
-				<p>A library to aide in generating regular expressions to match dates. See the <a href="https://mattpjohnson.github.io/drb">documentation</a>.</p>
+				<p>drb (Date Regex Builder) is a library to aide in generating regular expressions to match dates. See the <a href="https://mattpjohnson.github.io/drb">documentation</a>.</p>
 				<h1 id="table-of-contents-omit-in-toc-">Table of Contents <!-- omit in toc --></h1>
 				<ul>
 					<li><a href="#purpose">Purpose</a></li>
@@ -97,7 +97,7 @@
 					<li><a href="#license">License</a></li>
 				</ul>
 				<h1 id="purpose">Purpose</h1>
-				<p>Regular expressions are difficult to get right and can get messy pretty quickly. Consider creating a regular expression to match a day of the month. A naïve attempt might be to create a regex that matches two digits:</p>
+				<p>Regular expressions are difficult to get right and can get messy quickly. Consider creating a regular expression to match a day of the month. A naïve attempt might be to create a regex that matches two digits:</p>
 				<pre><code class="language-shell">\d{2}</code></pre>
 				<p>But there&#39;s a problem with this - <code>99</code> matches this regular expression and is not a valid day of the month. So we must refactor this to be a little more clever:</p>
 				<pre><code class="language-shell">[0-3][0-9]</code></pre>
@@ -110,10 +110,23 @@
 <span class="hljs-keyword">const</span> regex = drbMoment(<span class="hljs-string">'DD'</span>)
 <span class="hljs-built_in">console</span>.log(regex) <span class="hljs-comment">// (0[1-9]|[1-2][0-9]|3[0-1])</span></code></pre>
 				<h1 id="installation">Installation</h1>
-				<p>You can install drb using npm</p>
-				<pre><code class="language-shell">npm install --save drb</code></pre>
+				<p>Install with <a href="https://npmjs.com">npm</a>:</p>
+				<pre><code class="language-sh">$ npm install --save drb</code></pre>
+				<p>Or optionally using <a href="https://yarnpkg.com">yarn</a></p>
+				<pre><code class="language-sh">$ yarn add drb</code></pre>
 				<h1 id="usage">Usage</h1>
-				<p>TODO</p>
+				<p>Import drb and a formatter (currently only moment is supported) using one of these methods:</p>
+				<h2 id="node-js">Node.js</h2>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { drb } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'drb'</span>)
+<span class="hljs-keyword">const</span> { drbMoment } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'drb/formatters/drbMoment'</span>)</code></pre>
+				<h2 id="es6-typescript">ES6/TypeScript</h2>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { drb } <span class="hljs-keyword">from</span> <span class="hljs-string">'drb'</span>
+<span class="hljs-keyword">import</span> { drbMoment } <span class="hljs-keyword">from</span> <span class="hljs-string">'drb/formatters/drbMoment'</span></code></pre>
+				<p>Now combine drb with a formatter</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> drbMoment = drb(momentFormatter)</code></pre>
+				<p>Use <code>drbMoment</code> to create regexes using the syntax provided by <a href="http://momentjs.com">Moment.js</a></p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> regex = drbMoment(<span class="hljs-string">'DD'</span>)
+<span class="hljs-built_in">console</span>.log(regex) <span class="hljs-comment">// (0[1-9]|[1-2][0-9]|3[0-1])</span></code></pre>
 				<h1 id="license">License</h1>
 				<p>MIT</p>
 			</div>
