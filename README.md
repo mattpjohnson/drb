@@ -63,7 +63,7 @@ Using drb, this regex is easy to generate:
 ```javascript
 const drbMoment = drb(momentFormatter)
 const regex = drbMoment('DD')
-console.log(regex) // (0[1-9]|[1-2][0-9]|3[0-1])
+console.log(regex) // (?:0[1-9]|[1-2][0-9]|3[0-1])
 ```
 
 # Installation
@@ -82,16 +82,16 @@ $ yarn add drb
 
 # Usage
 
-Import drb and a formatter (currently only moment is supported) using one of these methods:
+Import drb and a formatter (currently only [Moment.js](http://momentjs.com) is supported) using one of these methods:
 
-## Node.js
+Node.js
 
 ```javascript
 const { drb } = require('drb')
 const { drbMoment } = require('drb/formatters/drbMoment')
 ```
 
-## ES6/TypeScript
+ES6/TypeScript
 
 ```javascript
 import { drb } from 'drb'
