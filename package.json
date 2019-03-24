@@ -6,6 +6,13 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/mattpjohnson/drb",
+  "keywords": [
+    "regex",
+    "regexp",
+    "regexp-match",
+    "dates",
+    "momentjs"
+  ],
   "author": "Matt Johnson <matt@mattpjohnson.com>",
   "license": "MIT",
   "scripts": {

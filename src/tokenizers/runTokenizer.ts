@@ -6,27 +6,23 @@
 
 import { DrbTokenizer } from './index'
 
-// TODO(mattpjohnson): Refactor. Probably using index pointers would be cleaner
 export const runTokenizer: DrbTokenizer = (input: string) => {
-  const tokens: string[] = []
-
   if (input.length === 0) {
-    return tokens
+    return []
   }
 
-  let currentToken = input[0]
-  for (let i = 1; i < input.length; i++) {
-    const letter = input[i]
+  const tokens: string[] = []
+  let start = 0
+  let end
 
-    if (letter !== currentToken[0]) {
-      tokens.push(currentToken)
-      currentToken = ''
+  for (end = 1; end < input.length; end++) {
+    if (input[start] !== input[end]) {
+      tokens.push(input.slice(start, end))
+      start = end
     }
-
-    currentToken += letter
   }
 
-  tokens.push(currentToken)
+  tokens.push(input.slice(start, end))
 
   return tokens
 }
