@@ -1,18 +1,17 @@
 export var runTokenizer = function (input) {
-    var tokens = [];
     if (input.length === 0) {
-        return tokens;
+        return [];
     }
-    var currentToken = input[0];
-    for (var i = 1; i < input.length; i++) {
-        var letter = input[i];
-        if (letter !== currentToken[0]) {
-            tokens.push(currentToken);
-            currentToken = '';
+    var tokens = [];
+    var start = 0;
+    var end;
+    for (end = 1; end < input.length; end++) {
+        if (input[start] !== input[end]) {
+            tokens.push(input.slice(start, end));
+            start = end;
         }
-        currentToken += letter;
     }
-    tokens.push(currentToken);
+    tokens.push(input.slice(start, end));
     return tokens;
 };
 //# sourceMappingURL=runTokenizer.js.map

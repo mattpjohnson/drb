@@ -63,7 +63,7 @@ Using drb, this regex is easy to generate:
 ```javascript
 const drbMoment = drb(momentFormatter)
 const regex = drbMoment('DD')
-console.log(regex) // (?:0[1-9]|[1-2][0-9]|3[0-1])
+console.log(regex) // (?:(?:0[1-9]|[12][0-9]|3[01]))
 ```
 
 # Installation
@@ -88,14 +88,14 @@ Node.js
 
 ```javascript
 const { drb } = require('drb')
-const { drbMoment } = require('drb/formatters/drbMoment')
+const { momentFormatter } = require('drb/formatters/momentFormatter')
 ```
 
 ES6/TypeScript
 
 ```javascript
 import { drb } from 'drb'
-import { drbMoment } from 'drb/formatters/drbMoment'
+import { momentFormatter } from 'drb/formatters/momentFormatter'
 ```
 
 Now combine drb with a formatter
@@ -107,8 +107,12 @@ const drbMoment = drb(momentFormatter)
 Use `drbMoment` to create regexes using the syntax provided by [Moment.js](http://momentjs.com)
 
 ```javascript
-const regex = drbMoment('DD')
-console.log(regex) // (0[1-9]|[1-2][0-9]|3[0-1])
+const regex1 = drbMoment('DD')
+console.log(regex1) // (?:(?:0[1-9]|[12][0-9]|3[01]))
+
+const regex2 = drbMoment('MM-DD-YYYY hh:mm:ss')
+console.log(regex2)
+// (?:(?:0[1-9]|1[0-2]))(?:-)(?:(?:0[1-9]|[12][0-9]|3[01]))(?:-)(?:\d{4})(?: )(?:(?:0[1-9]|1[0-2]))(?::)(?:(?:0[0-9]|[1-5][0-9]))(?::)(?:(?:0[0-9]|[1-5][0-9]))
 ```
 
 # License

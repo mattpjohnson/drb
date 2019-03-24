@@ -1,0 +1,1 @@
+{"version":3,"file":"momentFormatter.js","sourceRoot":"","sources":["../../src/formatters/momentFormatter.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,iBAAiB,EAAE,MAAM,oCAAoC,CAAA;AACtE,OAAO,EAAE,gBAAgB,EAAE,MAAM,iCAAiC,CAAA;AAClE,OAAO,EAAE,eAAe,EAAE,MAAM,+BAA+B,CAAA;AAE/D,MAAM,CAAC,IAAM,eAAe,GAAiB;IAC3C,MAAM,EAAE,iBAAiB;IACzB,QAAQ,EAAE,eAAe;IACzB,SAAS,EAAE,gBAAgB;CAC5B,CAAA"}

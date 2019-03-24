@@ -108,25 +108,29 @@
 				<p>Using drb, this regex is easy to generate:</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> drbMoment = drb(momentFormatter)
 <span class="hljs-keyword">const</span> regex = drbMoment(<span class="hljs-string">'DD'</span>)
-<span class="hljs-built_in">console</span>.log(regex) <span class="hljs-comment">// (0[1-9]|[1-2][0-9]|3[0-1])</span></code></pre>
+<span class="hljs-built_in">console</span>.log(regex) <span class="hljs-comment">// (?:(?:0[1-9]|[12][0-9]|3[01]))</span></code></pre>
 				<h1 id="installation">Installation</h1>
 				<p>Install with <a href="https://npmjs.com">npm</a>:</p>
 				<pre><code class="language-sh">$ npm install --save drb</code></pre>
 				<p>Or optionally using <a href="https://yarnpkg.com">yarn</a></p>
 				<pre><code class="language-sh">$ yarn add drb</code></pre>
 				<h1 id="usage">Usage</h1>
-				<p>Import drb and a formatter (currently only moment is supported) using one of these methods:</p>
-				<h2 id="node-js">Node.js</h2>
+				<p>Import drb and a formatter (currently only <a href="http://momentjs.com">Moment.js</a> is supported) using one of these methods:</p>
+				<p>Node.js</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { drb } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'drb'</span>)
-<span class="hljs-keyword">const</span> { drbMoment } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'drb/formatters/drbMoment'</span>)</code></pre>
-				<h2 id="es6-typescript">ES6/TypeScript</h2>
+<span class="hljs-keyword">const</span> { momentFormatter } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'drb/formatters/momentFormatter'</span>)</code></pre>
+				<p>ES6/TypeScript</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { drb } <span class="hljs-keyword">from</span> <span class="hljs-string">'drb'</span>
-<span class="hljs-keyword">import</span> { drbMoment } <span class="hljs-keyword">from</span> <span class="hljs-string">'drb/formatters/drbMoment'</span></code></pre>
+<span class="hljs-keyword">import</span> { momentFormatter } <span class="hljs-keyword">from</span> <span class="hljs-string">'drb/formatters/momentFormatter'</span></code></pre>
 				<p>Now combine drb with a formatter</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> drbMoment = drb(momentFormatter)</code></pre>
 				<p>Use <code>drbMoment</code> to create regexes using the syntax provided by <a href="http://momentjs.com">Moment.js</a></p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> regex = drbMoment(<span class="hljs-string">'DD'</span>)
-<span class="hljs-built_in">console</span>.log(regex) <span class="hljs-comment">// (0[1-9]|[1-2][0-9]|3[0-1])</span></code></pre>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> regex1 = drbMoment(<span class="hljs-string">'DD'</span>)
+<span class="hljs-built_in">console</span>.log(regex1) <span class="hljs-comment">// (?:(?:0[1-9]|[12][0-9]|3[01]))</span>
+
+<span class="hljs-keyword">const</span> regex2 = drbMoment(<span class="hljs-string">'MM-DD-YYYY hh:mm:ss'</span>)
+<span class="hljs-built_in">console</span>.log(regex2)
+<span class="hljs-comment">// (?:(?:0[1-9]|1[0-2]))(?:-)(?:(?:0[1-9]|[12][0-9]|3[01]))(?:-)(?:\d{4})(?: )(?:(?:0[1-9]|1[0-2]))(?::)(?:(?:0[0-9]|[1-5][0-9]))(?::)(?:(?:0[0-9]|[1-5][0-9]))</span></code></pre>
 				<h1 id="license">License</h1>
 				<p>MIT</p>
 			</div>

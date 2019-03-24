@@ -1,11 +1,6 @@
 export function lookupTranslator(lookup) {
     return function (tokens) {
-        return tokens.map(function (token) {
-            if (!(token in lookup)) {
-                throw new Error(token + " not found in token lookup");
-            }
-            return lookup[token];
-        });
+        return tokens.map(function (token) { return lookup[token] || token; });
     };
 }
 export function getNumbers(start, end) {
