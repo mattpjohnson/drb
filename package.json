@@ -1,6 +1,6 @@
 {
   "name": "drb",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Build date regexes",
   "main": "dist/index.umd.js",
   "module": "dist/index.js",
@@ -20,13 +20,17 @@
     "build:compile": "tsc",
     "build:rollup": "npm run build:rollup-index && npm run build:rollup-moment",
     "build:rollup-index": "rollup dist/index.js --file dist/index.umd.js --format umd --name drb --sourcemap",
-    "build:rollup-moment": "rollup dist/formatters/momentFormatter.js --file dist/formatters/momentFormatter.umd.js --format umd --name momentFormatter --sourcemap",
+    "build:rollup-moment": "rollup dist/formatters/momentFormatter.js --file dist/formatters/momentFormatter.js --format umd --name momentFormatter --sourcemap",
     "doc": "typedoc --out docs src/",
     "lint": "tslint --project . 'src/**/*.ts'",
     "start": "ts-node src/index.ts",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
+  "files": [
+    "dist/",
+    "formatters/"
+  ],
   "jest": {
     "moduleFileExtensions": [
       "ts",

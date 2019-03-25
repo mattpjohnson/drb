@@ -12,6 +12,18 @@
   <a href="https://sonarcloud.io/dashboard?id=mattpjohnson_drb">
     <img alt="SonarQube Technical Debt" src="https://img.shields.io/sonar/http/sonarcloud.io/mattpjohnson_drb/tech_debt.svg?style=flat">
   </a>
+  <a href="https://npmjs.com/package/drb">
+    <img alt="NPM Version" src="https://img.shields.io/npm/v/drb.svg?style=flat">
+  </a>
+  <a href="https://npmjs.com/package/drb">
+    <img alt="NPM Bundle Size (min)" src="https://img.shields.io/bundlephobia/min/drb.svg?style=flat">
+  </a>
+  <a href="https://npmjs.com/package/drb">
+    <img alt="NPM Bundle Size (min + gzip)" src="https://img.shields.io/bundlephobia/minzip/drb.svg?style=flat">
+  </a>
+  <a href="https://npmjs.com/package/drb">
+    <img alt="NPM Type Definitions" src="https://img.shields.io/npm/types/drb.svg?style=flat">
+  </a>
   <a href="https://github.com/prettier/prettier#badge">
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat">
   </a>
