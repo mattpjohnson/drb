@@ -7,7 +7,7 @@
     <img alt="CircleCI Build Status" src="https://img.shields.io/circleci/project/github/mattpjohnson/drb/master.svg?style=flat&label=CircleCI">
   </a>
   <a href="https://codecov.io/gh/mattpjohnson/drb">
-    <img alt="Codecov Coverage Status" src="https://img.shields.io/codecov/c/github/mattpjohnson/drb?style=flat">
+    <img alt="Codecov Coverage Status" src="https://img.shields.io/codecov/c/gh/mattpjohnson/drb.svg?style=flat">
   </a>
   <a href="https://sonarcloud.io/dashboard?id=mattpjohnson_drb">
     <img alt="SonarQube Technical Debt" src="https://img.shields.io/sonar/http/sonarcloud.io/mattpjohnson_drb/tech_debt.svg?style=flat">
