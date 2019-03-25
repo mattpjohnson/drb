@@ -23,7 +23,7 @@
   </a>
 </p>
 
-drb (Date Regex Builder) is a library to aide in generating regular expressions to match dates. See the [documentation](https://mattpjohnson.github.io/drb).
+drb (Date Regex Builder) is a library to aide in generating regular expressions to match dates.
 
 # Table of Contents <!-- omit in toc -->
 
