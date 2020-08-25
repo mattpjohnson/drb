@@ -2,6 +2,10 @@
 
 > Easily build date regular expressions
 
+<p align="center">
+  <img alt="banner image" src="https://github.com/mattpjohnson/drb/raw/master/docs/assets/images/banner.png">
+</p>
+
 <p>
   <a href="https://circleci.com/gh/mattpjohnson/drb">
     <img alt="CircleCI Build Status" src="https://img.shields.io/circleci/project/github/mattpjohnson/drb/master.svg?style=flat&label=CircleCI">
