@@ -1,7 +1,3 @@
-# drb <!-- omit in toc -->
-
-> Easily build date regular expressions
-
 <p align="center">
   <img alt="banner image" src="https://github.com/mattpjohnson/drb/raw/master/docs/assets/images/banner.png">
 </p>
